@@ -1,2 +1,5 @@
-# Google-Data-Analytics---Capstone-Project-1
-In this project I will reveal what I have learned within the Google Data Analytics course in which I will go through the Cyclistic data for 2024. 
+# Google-Data-Analytics---Capstone-Cyclistic - Project
+As part of the Google Data Analytics course I chose to complete the Cyclistic case study using data from 2024
+Case study: How does a bike-share navigate speedy success?
+
+In this project I will be using SQL for cleaning, wrangling and analysis. Then Tableau will be used for visualisation to enhance the analysis.
