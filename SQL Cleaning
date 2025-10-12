@@ -1,6 +1,7 @@
 /****** Google-Data-Analytics-Capstione-project  ******/
 
-##sql cleaning process
+-- SQL Cleaning Process
+
 -- create a table cyclistic_24_clean_nulls from cyclistic_24 WHERE there are no rows with NULLS
 CREATE TABLE
   `alien-array-468815-r3`.`Cyclistic`.`cyclistic_24_clean_nulls` AS
