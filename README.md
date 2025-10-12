@@ -12,3 +12,9 @@ As a junior data analyst on Cyclistic’s marketing team, I was assigned to expl
 2.	Why would casual riders buy Cyclistic annual memberships? 
 3.	How can Cyclistic use digital media to influence casual riders to become members? 
 
+## More Information
+Here is the link to detailed article with steps of analysis: medium link
+
+To check the documented process SQL query has been used in the project: SQL CODE
+
+To view the data visualisations used in this case study using Tableau: Tableau
