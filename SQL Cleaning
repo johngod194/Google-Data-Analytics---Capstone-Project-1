@@ -2,7 +2,11 @@
 
 -- SQL Cleaning Process
 
--- create a table cyclistic_24_clean_nulls from cyclistic_24 WHERE there are no rows with NULLS
+# Cleaning Process and Data Transformation in BigQuery with SQL
+--The data from cyclistic_24 has a total of 5860568 rows according to BigQuery’s results.
+--The cleaning process was done using SQL on BigQuery for Big Data processing.
+## Removing NULLS
+-- create a table cyclistic_24_clean_nulls from cyclistic_24 (original data set) where there are no rows with NULLS
 CREATE TABLE
   `alien-array-468815-r3`.`Cyclistic`.`cyclistic_24_clean_nulls` AS
 SELECT
@@ -36,9 +40,10 @@ WHERE
   AND end_lng IS NOT NULL
   AND member_casual IS NOT NULL;
 
---removing nulls and duplicates from 5860568 to 4208309 (1,652,259 lines eliminated)
-
--- checking for duplicated ride_ids
+--1,652,259 lines with NULLS were eliminated having now 4208309 instead.
+## Finding duplicates
+-- If there are any duplicates we surely cannot have are ride_id duplicates therefore:
+-- checking if there are duplicated ride_ids
 SELECT
   t1.*
 FROM
@@ -57,8 +62,10 @@ ON
 
 --242 duplicate ride_ids were found
 
+## Removing duplicates found
+--When removing duplicates on Big Query I learned we need to let BigQuery know which data to choose keeping from the duplicates 😊. Considering the two different formats in the started_at where some include the date and time with microseconds and some do not include de microseconds, I chose to keep the ones that do not include the microseconds. The below query converted started_at into a string where microseconds are viewed as fractional data and therefore excudled.
+--eliminating duplicated ride ids with started_at format that includes microseconds
 
---eliminating duplicate ride ids with started_at format that includes microseconds
 CREATE OR REPLACE TABLE `alien-array-468815-r3.Cyclistic.cyclistic_24_clean_nulls_unique` AS
 SELECT
   *
@@ -78,10 +85,11 @@ FROM (
 WHERE
   row_number = 1;
 
---unique ride ids - 4208188 (121 lines eliminated)
+--121 duplicate ride_ids were removed – having now 4208188 rows
 
+## Formatting 
+--As mentioned before there were some small differences within the format of started_at and ended_at fields where some included microseconds, so the new format removed date with microseconds.
 --amending format from both started_at and ended_at fields to remove microseconds
---sorting by started_at
 CREATE OR REPLACE TABLE `alien-array-468815-r3.Cyclistic.cyclistic_24_clean_nulls_unique_v1` AS
 SELECT
   ride_id,
@@ -100,4 +108,65 @@ SELECT
 FROM
   `alien-array-468815-r3`.`Cyclistic`.`cyclistic_24_clean_nulls_unique_v1`
 ORDER BY
-  started_at;
+  started_at; 
+
+## Filterring data to match context
+--Adding ride_length column that filters rides with more than 0 minutes, as ride_lenght should not be a negative value.
+--This was done by calculating the difference between the ended_at time and the started_at time.
+CREATE OR REPLACE TABLE
+  `alien-array-468815-r3`.`Cyclistic`.`cyclistic_24_clean_nulls_unique_v1` AS
+SELECT
+  t.ride_id,
+  t.started_at,
+  t.ended_at,
+  TIMESTAMP_DIFF( CAST(t.ended_at AS TIMESTAMP), CAST(t.started_at AS TIMESTAMP), MINUTE) AS ride_length,
+  t.rideable_type,
+  t.start_station_name,
+  t.start_station_id,
+  t.end_station_name,
+  t.end_station_id,
+  t.start_lat,
+  t.start_lng,
+  t.end_lat,
+  t.end_lng,
+  t.member_casual
+FROM
+  `alien-array-468815-r3`.`Cyclistic`.`cyclistic_24_clean_nulls_unique_v1` AS t
+WHERE
+  TIMESTAMP_DIFF( CAST(t.ended_at AS TIMESTAMP), CAST(t.started_at AS TIMESTAMP), MINUTE) > 0;
+
+--Number of rows 4168627 (39,561 lines were eliminated)
+
+## Transformaing data
+--Formatting started_at and ended_at fields to include only time (hh:mm:ss) - I know I have formatted this fields previously but I thought this would make more sense.
+--adding day, month and weekday, and created a final file for cleaning ‘cyclistic_24_cleaned’
+--Note: Day, month and weekday columns can be for future daily and monthly analysis.
+
+CREATE TABLE
+  `alien-array-468815-r3`.`Cyclistic`.`cyclistic_24_cleaned` AS
+SELECT
+  ride_id,
+FORMAT_TIMESTAMP( '%H:%M:%S', PARSE_TIMESTAMP('%Y-%m-%d %H:%M:%S UTC', started_at)) AS started_at, 
+   FORMAT_TIMESTAMP( '%H:%M:%S', PARSE_TIMESTAMP('%Y-%m-%d %H:%M:%S UTC', ended_at)) AS ended_at,
+EXTRACT(DAY
+  FROM
+    PARSE_TIMESTAMP('%Y-%m-%d %H:%M:%S UTC', started_at)) AS day,
+  EXTRACT(MONTH
+  FROM
+    PARSE_TIMESTAMP('%Y-%m-%d %H:%M:%S UTC', started_at)) AS month,
+  FORMAT_DATE('%A', PARSE_TIMESTAMP('%Y-%m-%d %H:%M:%S UTC', started_at)) AS weekday,
+  ride_length,
+  rideable_type,
+  start_station_name,
+  start_station_id,
+  end_station_name,
+  end_station_id,
+  start_lat,
+  start_lng,
+  end_lat,
+  end_lng,
+  member_casual
+FROM
+  `alien-array-468815-r3`.`Cyclistic`.`cyclistic_24_clean_nulls_unique_v1`
+WHERE
+  PARSE_TIMESTAMP('%Y-%m-%d %H:%M:%S UTC', started_at) IS NOT NULL;
