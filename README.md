@@ -14,9 +14,9 @@ As a junior data analyst on Cyclistic’s marketing team, I was assigned to expl
 
 ## More Information
 Here are the links to the  detailed article with the steps of analysis: 
-[Medium Link](https://medium.com/@joao.ornelas194/google-data-analytics-capstone-project-cyclistic-2024-2f9193c9c72d)
+* [Medium Link](https://medium.com/@joao.ornelas194/google-data-analytics-capstone-project-cyclistic-2024-2f9193c9c72d)
 
-[Kaggle Link](https://www.kaggle.com/code/jooornelas/google-data-analytics-capstone-cyclistic-2024) 
+* [Kaggle Link](https://www.kaggle.com/code/jooornelas/google-data-analytics-capstone-cyclistic-2024) 
 
 
 To check the documented process SQL query has been used in the project: [SQL CODE](https://github.com/johngod194/Google-Data-Analytics---Capstone-Project-1/blob/main/SQL%20Cleaning)
