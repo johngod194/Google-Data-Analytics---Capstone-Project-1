@@ -18,6 +18,8 @@ Here are the links to the  detailed article with the steps of analysis:
 
 * [Medium Link](https://medium.com/@joao.ornelas194/google-data-analytics-capstone-project-cyclistic-2024-2f9193c9c72d)
 
+* **The presentation can be found in this [link](https://github.com/johngod194/Google-Data-Analytics---Capstone-Project-1/blob/fc2b689cbe63314cd40e2e6d41e95479830c2713/Capstone%20Project%20-%20Cyclistic%202024%20Presentation.pdf)**
+
 
 To check the documented process SQL query has been used in the project: [SQL CODE](https://github.com/johngod194/Google-Data-Analytics---Capstone-Project-1/blob/main/SQL%20Cleaning)
 
