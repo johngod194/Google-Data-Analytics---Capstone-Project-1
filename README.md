@@ -21,6 +21,7 @@ Here are the links to the  detailed article with the steps of analysis:
 
 
 To check the documented process SQL query has been used in the project: [SQL CODE](https://github.com/johngod194/Google-Data-Analytics---Capstone-Project-1/blob/main/SQL%20Cleaning)
+
 The insights gained through the analysis were presented to the Cyclistic team: [Presentation Deck](https://github.com/johngod194/Google-Data-Analytics---Capstone-Project-1/blob/fc2b689cbe63314cd40e2e6d41e95479830c2713/Capstone%20Project%20-%20Cyclistic%202024%20Presentation.pdf)
 
 
