@@ -11,7 +11,7 @@ As a junior data analyst on Cyclistic’s marketing team, I was assigned to expl
 2.	Why would casual riders buy Cyclistic annual memberships? 
 3.	How can Cyclistic use digital media to influence casual riders to become members? 
 
-**The Project file can be found *[here](https://github.com/johngod194/Google-Data-Analytics---Capstone-Project-1/blob/ecbaa59101691f3151b4160f3a663aa9e72e6ae5/Kaggle%20Notebook%20-%20Capstone%20Project.ipynb.ipynb)*
+The Project file can be found *[here](https://github.com/johngod194/Google-Data-Analytics---Capstone-Project-1/blob/ecbaa59101691f3151b4160f3a663aa9e72e6ae5/Kaggle%20Notebook%20-%20Capstone%20Project.ipynb.ipynb)*
 
 ## More Information
 Here are the links to the  detailed article with the steps of analysis: 
