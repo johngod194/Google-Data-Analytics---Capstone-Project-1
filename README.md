@@ -4,14 +4,14 @@ As part of the Google Data Analytics program, this repository includes the Cycli
 **The project applies SQL to clean, transform, and analyse historical trip data, then uses R (on Kaggle) to produce the analysis report and supporting visualisations.**
 
 ## Background
-As a junior data analyst on Cyclistic’s marketing team, I was assigned to explore how casual riders and annual members use the company’s bike-share service differently. The goal was to identify actionable insights to inform marketing strategies that encourage casual riders to become annual members. I produced three evidence-based recommendations supported by analysis and visualisations.
+As a junior data analyst on Cyclistic's marketing team, I was assigned to explore how casual riders and annual members use the company's bike-share service differently. The goal was to identify key differences in usage patterns between these two customer segments, which would inform targeted marketing strategies to convert casual riders into annual members.
 
 **This project aims to answer 3 main questions:**
 1.	How do annual members and casual riders use Cyclistic bikes differently? 
 2.	Why would casual riders buy Cyclistic annual memberships? 
 3.	How can Cyclistic use digital media to influence casual riders to become members? 
 
-The Project file can be found *[here](https://github.com/johngod194/Google-Data-Analytics---Capstone-Project-1/blob/27d8db0a3ca37cbb6f623a6ec6ca5ae725f5e821/Kaggle%20Notebook%20-%20Capstone%20Project.ipynb)*
+The Project file can be found *[here](https://github.com/johngod194/Google-Data-Analytics---Capstone-Project-1/blob/main/Kaggle%20Notebook%20-%20Capstone%20Project%20-%20Cyclistic%202024.ipynb)*
 
 ## More Information
 Here are the links to the  detailed article with the steps of analysis: 
@@ -21,6 +21,5 @@ Here are the links to the  detailed article with the steps of analysis:
 
 * To check the documented process SQL query has been used in the project: [SQL CODE](https://github.com/johngod194/Google-Data-Analytics---Capstone-Project-1/blob/main/SQL%20Cleaning)
 
-* The insights gained through the analysis were presented to the Cyclistic team: [Presentation Deck](https://github.com/johngod194/Google-Data-Analytics---Capstone-Project-1/blob/6b248ed1f3a8325ab4268d72e9f889c628632d66/Capstone%20Project%20-%20Cyclistic%202024%20Presentation%201.pdf)
-
+* The insights gained through the analysis were presented to the Cyclistic team: [Download Presentation Deck](https://github.com/johngod194/Google-Data-Analytics---Capstone-Project-1/raw/main/Capstone%20Project%20-%20Cyclistic%202024%20Presentation%201.pdf)
 
